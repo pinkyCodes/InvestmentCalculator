@@ -1,10 +1,13 @@
 import Header from './components/Header';
 import InvestmentForm from './components/InvestmentForm';
 import InvestmentResult from './components/InvestmentResult';
+import UserInput from './models/UserInput.model';
 
-const App = () => {
+const App: React.FC = () => {
 
-  const calculateHandler = (userInput) => {
+  // const [userInput, setUserInput] = useState();
+
+  const calculateHandler = (userInput: UserInput): void => {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
 
@@ -34,7 +37,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <InvestmentForm />
+      <InvestmentForm onSubmitForm={calculateHandler} />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
