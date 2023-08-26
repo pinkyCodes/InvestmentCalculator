@@ -51,6 +51,16 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onSubmitForm }) => {
         }
     };
 
+    // alternative where the logic is defined inside the jsx
+    // const inputChangeHandler = (input, value) => {
+    //     setUserInput((prevInput) => {
+    //         return {
+    //             ...prevInput,
+    //             [input]: value,
+    //         };
+    //     });
+    // };
+
     return (
         <form className="form" onSubmit={submitHandler}>
             <div className="input-group">
@@ -62,6 +72,7 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onSubmitForm }) => {
                         aria-label="current-savings"
                         value={enteredCurrentSavings || ''}
                         onChange={inputChangeHandler}
+                    // onChange={(event) => inputChangeHandler("current-savings", event.target.value)}
                     />
                 </p>
                 <p>
