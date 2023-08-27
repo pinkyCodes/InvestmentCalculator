@@ -1,10 +1,10 @@
 import { useState } from "react";
 import UserInput from "../models/UserInput.model";
 interface InvestmentFormProps {
-    onSubmitForm: (userInput: UserInput) => void;
+    onCalculate: (userInput: UserInput) => void;
 };
 
-const InvestmentForm: React.FC<InvestmentFormProps> = ({ onSubmitForm }) => {
+const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
 
     const [enteredCurrentSavings, setEnteredCurrentSavings] = useState<string>('');
     const [enteredYearlyContribution, setEnteredYearlyContribution] = useState<string>('');
@@ -21,7 +21,7 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onSubmitForm }) => {
             'duration': enteredDuration,
         };
 
-        onSubmitForm(currentUserInput);
+        onCalculate(currentUserInput);
     };
 
     // const resetHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
