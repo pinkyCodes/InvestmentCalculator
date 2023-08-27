@@ -1,4 +1,13 @@
-const InvestmentResult = () => {
+import UserData from "../models/UserData.model";
+import currencyFormatter from '../utils/currencyFormatter';
+
+interface InvestmentResultProps {
+    data: UserData[];
+    initialInvestment: string;
+};
+
+const InvestmentResult: React.FC<InvestmentResultProps> = ({ data, initialInvestment }) => {
+
     return (
         <table className="result">
             <thead>
@@ -11,13 +20,22 @@ const InvestmentResult = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>YEAR NUMBER</td>
-                    <td>TOTAL SAVINGS END OF YEAR</td>
-                    <td>INTEREST GAINED IN YEAR</td>
-                    <td>TOTAL INTEREST GAINED</td>
-                    <td>TOTAL INVESTED CAPITAL</td>
-                </tr>
+                {data.map((yearData) => (
+                    <tr key={yearData.year}>
+                        <td>{yearData.year}</td>
+                        <td>{currencyFormatter.format(yearData.savingsEndOfYear)}</td>
+                        <td>{currencyFormatter.format(yearData.yearlyInterest)}</td>
+                        <td>{currencyFormatter.format(
+                            yearData.savingsEndOfYear -
+                            Number(initialInvestment) -
+                            yearData.yearlyContribution * yearData.year
+                        )}</td>
+                        <td>{currencyFormatter.format(
+                            initialInvestment +
+                            yearData.yearlyContribution * yearData.year
+                        )}</td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     );
