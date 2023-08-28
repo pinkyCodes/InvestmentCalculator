@@ -4,7 +4,7 @@ import classes from './InvestmentResult.module.css';
 
 interface InvestmentResultProps {
     data: UserData[];
-    initialInvestment: string;
+    initialInvestment: number;
 };
 
 const InvestmentResult: React.FC<InvestmentResultProps> = ({ data, initialInvestment }) => {

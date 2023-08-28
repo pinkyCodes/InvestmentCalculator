@@ -7,10 +7,10 @@ interface InvestmentFormProps {
 
 const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
 
-    const [enteredCurrentSavings, setEnteredCurrentSavings] = useState<string>('');
-    const [enteredYearlyContribution, setEnteredYearlyContribution] = useState<string>('');
-    const [enteredExpectedReturn, setEnteredExpectedReturn] = useState<string>('');
-    const [enteredDuration, setEnteredDuration] = useState<string>('');
+    const [enteredCurrentSavings, setEnteredCurrentSavings] = useState<number>(0);
+    const [enteredYearlyContribution, setEnteredYearlyContribution] = useState<number>(0);
+    const [enteredExpectedReturn, setEnteredExpectedReturn] = useState<number>(0);
+    const [enteredDuration, setEnteredDuration] = useState<number>(0);
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -27,25 +27,25 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
 
     // const resetHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     const resetHandler = (): void => {
-        setEnteredCurrentSavings('');
-        setEnteredYearlyContribution('');
-        setEnteredExpectedReturn('');
-        setEnteredDuration('');
+        setEnteredCurrentSavings(0);
+        setEnteredYearlyContribution(0);
+        setEnteredExpectedReturn(0);
+        setEnteredDuration(0);
     };
 
     const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         switch (event.target.id) {
             case 'current-savings':
-                setEnteredCurrentSavings(event.target.value);
+                setEnteredCurrentSavings(+event.target.value);
                 break;
             case 'yearly-contribution':
-                setEnteredYearlyContribution(event.target.value);
+                setEnteredYearlyContribution(+event.target.value);
                 break;
             case 'expected-return':
-                setEnteredExpectedReturn(event.target.value);
+                setEnteredExpectedReturn(+event.target.value);
                 break;
             case 'duration':
-                setEnteredDuration(event.target.value);
+                setEnteredDuration(+event.target.value);
                 break;
             default:
                 break;
