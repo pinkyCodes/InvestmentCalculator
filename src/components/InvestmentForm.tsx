@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UserInput from "../models/UserInput.model";
+import classes from './InvestmentForm.module.css';
 interface InvestmentFormProps {
     onCalculate: (userInput: UserInput) => void;
 };
@@ -62,8 +63,8 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
     // };
 
     return (
-        <form className="form" onSubmit={submitHandler}>
-            <div className="input-group">
+        <form className={classes.form} onSubmit={submitHandler}>
+            <div className={classes['input-group']}>
                 <p>
                     <label htmlFor="current-savings">Current Savings ($)</label>
                     <input
@@ -86,7 +87,7 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
                     />
                 </p>
             </div>
-            <div className="input-group">
+            <div className={classes['input-group']}>
                 <p>
                     <label htmlFor="expected-return">Expected Interest (%, per year)</label>
                     <input
@@ -109,11 +110,11 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
                     />
                 </p>
             </div>
-            <p className="actions">
-                <button type="reset" className="buttonAlt" onClick={resetHandler}>
+            <p className={classes.actions}>
+                <button type="reset" className={classes.buttonAlt} onClick={resetHandler}>
                     Reset
                 </button>
-                <button type="submit" className="button">
+                <button type="submit" className={classes.button}>
                     Calculate
                 </button>
             </p>

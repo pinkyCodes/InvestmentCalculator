@@ -42,7 +42,7 @@ const App: React.FC = () => {
       {userData.length > 0 ?
         <InvestmentResult data={userData} initialInvestment={userInput!['current-savings']} />
         :
-        <p>Oopsie!</p>
+        <p style={{ textAlign: 'center' }}>Nothing calculated yet.</p>
       }
 
     </div>
