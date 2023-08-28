@@ -1,5 +1,6 @@
 import UserData from "../models/UserData.model";
 import currencyFormatter from '../utils/currencyFormatter';
+import classes from './InvestmentResult.module.css';
 
 interface InvestmentResultProps {
     data: UserData[];
@@ -9,7 +10,7 @@ interface InvestmentResultProps {
 const InvestmentResult: React.FC<InvestmentResultProps> = ({ data, initialInvestment }) => {
 
     return (
-        <table className="result">
+        <table className={classes.result}>
             <thead>
                 <tr>
                     <th>Year</th>
