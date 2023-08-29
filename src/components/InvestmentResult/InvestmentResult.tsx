@@ -1,5 +1,5 @@
-import UserData from "../models/UserData.model";
-import currencyFormatter from '../utils/currencyFormatter';
+import UserData from '../../models/UserData.model';
+import currencyFormatter from '../../utils/currencyFormatter';
 import classes from './InvestmentResult.module.css';
 
 interface InvestmentResultProps {
@@ -8,6 +8,8 @@ interface InvestmentResultProps {
 };
 
 const InvestmentResult: React.FC<InvestmentResultProps> = ({ data, initialInvestment }) => {
+
+    const formatter = currencyFormatter('en-US', 'currency', 'BGN', 2, 2);
 
     return (
         <table className={classes.result}>
@@ -24,14 +26,14 @@ const InvestmentResult: React.FC<InvestmentResultProps> = ({ data, initialInvest
                 {data.map((yearData) => (
                     <tr key={yearData.year}>
                         <td>{yearData.year}</td>
-                        <td>{currencyFormatter.format(yearData.savingsEndOfYear)}</td>
-                        <td>{currencyFormatter.format(yearData.yearlyInterest)}</td>
-                        <td>{currencyFormatter.format(
+                        <td>{formatter.format(yearData.savingsEndOfYear)}</td>
+                        <td>{formatter.format(yearData.yearlyInterest)}</td>
+                        <td>{formatter.format(
                             yearData.savingsEndOfYear -
                             Number(initialInvestment) -
                             yearData.yearlyContribution * yearData.year
                         )}</td>
-                        <td>{currencyFormatter.format(
+                        <td>{formatter.format(
                             initialInvestment +
                             yearData.yearlyContribution * yearData.year
                         )}</td>
