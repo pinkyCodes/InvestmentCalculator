@@ -15,22 +15,22 @@ const FormInput = (props: FormInputProps): JSX.Element => {
         <form className={classes.form} onSubmit={props.onSubmit}>
             <div className={classes['input-group']}>
                 <p>
-                    <label htmlFor="current-savings">Current Savings ($)</label>
+                    <label htmlFor="currentSavings">Current Savings ($)</label>
                     <input
                         type="number"
-                        id="current-savings"
-                        aria-label="current-savings"
+                        id="currentSavings"
+                        aria-label="currentSavings"
                         value={props.currentSavings || ''}
                         onChange={props.onInputChange}
                     // onChange={(event) => inputChangeHandler("current-savings", event.target.value)}
                     />
                 </p>
                 <p>
-                    <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
+                    <label htmlFor="yearlyContribution">Yearly Savings ($)</label>
                     <input
                         type="number"
-                        id="yearly-contribution"
-                        aria-label="yearly-contribution"
+                        id="yearlyContribution"
+                        aria-label="yearlyContribution"
                         value={props.yearlyContribution || ''}
                         onChange={props.onInputChange}
                     />
@@ -38,11 +38,11 @@ const FormInput = (props: FormInputProps): JSX.Element => {
             </div>
             <div className={classes['input-group']}>
                 <p>
-                    <label htmlFor="expected-return">Expected Interest (%, per year)</label>
+                    <label htmlFor="expectedReturn">Expected Interest (%, per year)</label>
                     <input
                         type="number"
-                        id="expected-return"
-                        aria-label="expected-return"
+                        id="expectedReturn"
+                        aria-label="expectedReturn"
                         value={props.expectedReturn || ''}
                         onChange={props.onInputChange}
                     />

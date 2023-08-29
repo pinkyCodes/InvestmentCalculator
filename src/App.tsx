@@ -14,10 +14,10 @@ const App = (): JSX.Element => {
 
     const yearlyData = [];
 
-    let currentSavings = userInput['current-savings'];
-    const yearlyContribution = userInput['yearly-contribution'];
-    const expectedReturn = userInput['expected-return'] / 100;
-    const duration = userInput['duration'];
+    let currentSavings = userInput.currentSavings;
+    const yearlyContribution = userInput.yearlyContribution;
+    const expectedReturn = userInput.expectedReturn / 100;
+    const duration = userInput.duration;
 
     for (let i = 0; i < duration; i++) {
       const yearlyInterest = currentSavings * expectedReturn;
@@ -39,7 +39,7 @@ const App = (): JSX.Element => {
       <InvestmentForm onCalculate={calculateHandler} />
 
       {userData.length > 0 ?
-        <InvestmentResult data={userData} initialInvestment={userInput!['current-savings']} />
+        <InvestmentResult data={userData} initialInvestment={userInput!.currentSavings} />
         :
         <p style={{ textAlign: 'center' }}>Nothing to calculate yet.</p>
       }

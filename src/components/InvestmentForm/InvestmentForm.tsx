@@ -17,10 +17,10 @@ const InvestmentForm = ({ onCalculate }: InvestmentFormProps): JSX.Element => {
         event.preventDefault();
 
         const currentUserInput = {
-            'current-savings': enteredCurrentSavings,
-            'yearly-contribution': enteredYearlyContribution,
-            'expected-return': enteredExpectedReturn,
-            'duration': enteredDuration,
+            currentSavings: enteredCurrentSavings,
+            yearlyContribution: enteredYearlyContribution,
+            expectedReturn: enteredExpectedReturn,
+            duration: enteredDuration,
         };
 
         onCalculate(currentUserInput);
@@ -36,13 +36,13 @@ const InvestmentForm = ({ onCalculate }: InvestmentFormProps): JSX.Element => {
 
     const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         switch (event.target.id) {
-            case 'current-savings':
+            case 'currentSavings':
                 setEnteredCurrentSavings(+event.target.value);
                 break;
-            case 'yearly-contribution':
+            case 'yearlyContribution':
                 setEnteredYearlyContribution(+event.target.value);
                 break;
-            case 'expected-return':
+            case 'expectedReturn':
                 setEnteredExpectedReturn(+event.target.value);
                 break;
             case 'duration':
