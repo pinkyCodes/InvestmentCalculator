@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import UserInput from '../../models/UserInput.model';
+import { UserInput } from '../../models/user';
 import FormInput from './FormInput';
 
 interface InvestmentFormProps {

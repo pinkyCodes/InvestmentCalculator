@@ -1,4 +1,4 @@
-import UserData from '../../models/UserData.model';
+import { UserData } from '../../models/user';
 import currencyFormatter from '../../utils/currencyFormatter';
 import classes from './InvestmentResult.module.css';
 

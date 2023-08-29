@@ -2,8 +2,7 @@ import { useState } from 'react';
 import Header from './components/Header/Header';
 import InvestmentForm from './components/InvestmentForm/InvestmentForm';
 import InvestmentResult from './components/InvestmentResult/InvestmentResult';
-import UserData from './models/UserData.model';
-import UserInput from './models/UserInput.model';
+import { UserData, UserInput } from './models/user';
 
 const App = (): JSX.Element => {
 
@@ -42,7 +41,7 @@ const App = (): JSX.Element => {
       {userData.length > 0 ?
         <InvestmentResult data={userData} initialInvestment={userInput!['current-savings']} />
         :
-        <p style={{ textAlign: 'center' }}>Nothing calculated yet.</p>
+        <p style={{ textAlign: 'center' }}>Nothing to calculate yet.</p>
       }
 
     </div>
