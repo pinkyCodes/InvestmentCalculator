@@ -1,8 +1,16 @@
-const currencyFormatter: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'BGN',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-});
+const currencyFormatter = (
+    locale: string,
+    style: string,
+    currency: string,
+    minimumFractionDigits: number,
+    maximumFractionDigits: number,
+): Intl.NumberFormat => {
+    return new Intl.NumberFormat(locale, {
+        style: style,
+        currency: currency,
+        minimumFractionDigits: minimumFractionDigits,
+        maximumFractionDigits: maximumFractionDigits,
+    });
+};
 
 export default currencyFormatter;
