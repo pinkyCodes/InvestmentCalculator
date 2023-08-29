@@ -1,5 +1,5 @@
-import UserData from "../models/UserData.model";
-import currencyFormatter from '../utils/currencyFormatter';
+import UserData from '../../models/UserData.model';
+import currencyFormatter from '../../utils/currencyFormatter';
 import classes from './InvestmentResult.module.css';
 
 interface InvestmentResultProps {

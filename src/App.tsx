@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Header from './components/Header';
-import InvestmentForm from './components/InvestmentForm';
-import InvestmentResult from './components/InvestmentResult';
+import Header from './components/Header/Header';
+import InvestmentForm from './components/InvestmentForm/InvestmentForm';
+import InvestmentResult from './components/InvestmentResult/InvestmentResult';
 import UserData from './models/UserData.model';
 import UserInput from './models/UserInput.model';
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import UserInput from "../models/UserInput.model";
+import UserInput from '../../models/UserInput.model';
 import classes from './InvestmentForm.module.css';
+
 interface InvestmentFormProps {
     onCalculate: (userInput: UserInput) => void;
 };
