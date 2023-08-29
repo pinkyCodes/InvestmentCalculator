@@ -5,7 +5,7 @@ import InvestmentResult from './components/InvestmentResult';
 import UserData from './models/UserData.model';
 import UserInput from './models/UserInput.model';
 
-const App: React.FC = () => {
+const App = (): JSX.Element => {
 
   const [userData, setUserData] = useState<UserData[]>([]);
   const [userInput, setUserInput] = useState<UserInput>();
