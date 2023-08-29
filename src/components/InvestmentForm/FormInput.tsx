@@ -10,7 +10,7 @@ interface FormInputProps {
     onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const FormInput: React.FC<FormInputProps> = (props) => {
+const FormInput = (props: FormInputProps): JSX.Element => {
     return (
         <form className={classes.form} onSubmit={props.onSubmit}>
             <div className={classes['input-group']}>

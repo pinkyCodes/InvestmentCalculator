@@ -7,7 +7,7 @@ interface InvestmentResultProps {
     initialInvestment: number;
 };
 
-const InvestmentResult: React.FC<InvestmentResultProps> = ({ data, initialInvestment }) => {
+const InvestmentResult = ({ data, initialInvestment }: InvestmentResultProps): JSX.Element => {
 
     const formatter = currencyFormatter('en-US', 'currency', 'BGN', 2, 2);
 

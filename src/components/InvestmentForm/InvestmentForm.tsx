@@ -6,12 +6,12 @@ interface InvestmentFormProps {
     onCalculate: (userInput: UserInput) => void;
 };
 
-const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
+const InvestmentForm = ({ onCalculate }: InvestmentFormProps): JSX.Element => {
 
-    const [enteredCurrentSavings, setEnteredCurrentSavings] = useState<number>(0);
-    const [enteredYearlyContribution, setEnteredYearlyContribution] = useState<number>(0);
-    const [enteredExpectedReturn, setEnteredExpectedReturn] = useState<number>(0);
-    const [enteredDuration, setEnteredDuration] = useState<number>(0);
+    const [enteredCurrentSavings, setEnteredCurrentSavings] = useState(0);
+    const [enteredYearlyContribution, setEnteredYearlyContribution] = useState(0);
+    const [enteredExpectedReturn, setEnteredExpectedReturn] = useState(0);
+    const [enteredDuration, setEnteredDuration] = useState(0);
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
