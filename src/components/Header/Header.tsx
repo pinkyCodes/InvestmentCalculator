@@ -1,4 +1,4 @@
-import logo from '../../assets/investment-calculator-logo.png';
+import logo from '../../assets/scrooge-mcduck.png';
 import classes from './Header.module.css';
 
 const Header = (): JSX.Element => {
