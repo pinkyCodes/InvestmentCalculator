@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { UserInput } from '../../models/user';
 import FormInput from './FormInput';
-
+import classes from './InvestmentForm.module.css';
 interface InvestmentFormProps {
     onCalculate: (userInput: UserInput) => void;
 };
@@ -64,15 +64,48 @@ const InvestmentForm = ({ onCalculate }: InvestmentFormProps): JSX.Element => {
     // };
 
     return (
-        <FormInput
-            currentSavings={enteredCurrentSavings}
-            yearlyContribution={enteredYearlyContribution}
-            expectedReturn={enteredExpectedReturn}
-            duration={enteredDuration}
-            onSubmit={submitHandler}
-            onReset={resetHandler}
-            onInputChange={inputChangeHandler}
-        />
+        <form className={classes.form} onSubmit={submitHandler}>
+
+            <div className={classes['input-group']}>
+                <FormInput
+                    value={enteredCurrentSavings}
+                    id='currentSavings'
+                    title='Current Savings ($)'
+                    onInputChange={inputChangeHandler}
+                />
+                <FormInput
+                    value={enteredYearlyContribution}
+                    id='yearlyContribution'
+                    title='Yearly Savings ($)'
+                    onInputChange={inputChangeHandler}
+                />
+            </div>
+
+            <div className={classes['input-group']}>
+                <FormInput
+                    value={enteredExpectedReturn}
+                    id={'expectedReturn'}
+                    title='Expected Interest (%, per year)'
+                    onInputChange={inputChangeHandler}
+                />
+                <FormInput
+                    value={enteredDuration}
+                    id={'duration'}
+                    title='Investment Duration (years)'
+                    onInputChange={inputChangeHandler}
+                />
+            </div>
+
+            <p className={classes.actions}>
+                <button type="reset" className={classes.buttonAlt} onClick={resetHandler}>
+                    Reset
+                </button>
+                <button type="submit" className={classes.button}>
+                    Calculate
+                </button>
+            </p>
+
+        </form>
     );
 };
 
