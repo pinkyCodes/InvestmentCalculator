@@ -1,9 +1,9 @@
-import { UserData } from '../../models/user';
+import { YearlyData } from '../../models/user';
 import currencyFormatter from '../../utils/currencyFormatter';
 import classes from './InvestmentResult.module.css';
 
 interface InvestmentResultProps {
-    data: UserData[];
+    data: YearlyData[];
     initialInvestment: number;
 };
 

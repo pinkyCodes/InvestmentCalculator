@@ -2,11 +2,11 @@ import { useState } from 'react';
 import Header from './components/Header/Header';
 import InvestmentForm from './components/InvestmentForm/InvestmentForm';
 import InvestmentResult from './components/InvestmentResult/InvestmentResult';
-import { UserData, UserInput } from './models/user';
+import { YearlyData, UserInput } from './models/user';
 
 const App = (): JSX.Element => {
 
-  const [userData, setUserData] = useState<UserData[]>([]);
+  const [yearlyData, setYearlyData] = useState<YearlyData[]>([]);
   const [userInput, setUserInput] = useState<UserInput>();
 
   const calculateHandler = (userInput: UserInput): void => {
@@ -30,16 +30,37 @@ const App = (): JSX.Element => {
       });
     }
 
-    setUserData(yearlyData);
+    setYearlyData(yearlyData);
   };
+
+  // yearlyData as derived state based on the userInput state
+  // const yearlyData = [];
+
+  // if (userInput) {
+  //   let currentSavings = userInput.currentSavings;
+  //   const yearlyContribution = userInput.yearlyContribution;
+  //   const expectedReturn = userInput.expectedReturn / 100;
+  //   const duration = userInput.duration;
+
+  //   for (let i = 0; i < duration; i++) {
+  //     const yearlyInterest = currentSavings * expectedReturn;
+  //     currentSavings += yearlyInterest + yearlyContribution;
+  //     yearlyData.push({
+  //       year: i + 1,
+  //       yearlyInterest: yearlyInterest,
+  //       savingsEndOfYear: currentSavings,
+  //       yearlyContribution: yearlyContribution,
+  //     });
+  //   };
+  // };
 
   return (
     <div>
       <Header />
       <InvestmentForm onCalculate={calculateHandler} />
 
-      {userData.length > 0 ?
-        <InvestmentResult data={userData} initialInvestment={userInput!.currentSavings} />
+      {yearlyData.length > 0 ?
+        <InvestmentResult data={yearlyData} initialInvestment={userInput!.currentSavings} />
         :
         <p style={{ textAlign: 'center' }}>Nothing to calculate yet.</p>
       }

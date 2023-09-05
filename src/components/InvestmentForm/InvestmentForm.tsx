@@ -6,93 +6,66 @@ interface InvestmentFormProps {
     onCalculate: (userInput: UserInput) => void;
 };
 
+const initialUserInput = {
+    currentSavings: 0,
+    yearlyContribution: 0,
+    expectedReturn: 0,
+    duration: 0,
+};
+
 const InvestmentForm = ({ onCalculate }: InvestmentFormProps): JSX.Element => {
 
-    const [enteredCurrentSavings, setEnteredCurrentSavings] = useState(0);
-    const [enteredYearlyContribution, setEnteredYearlyContribution] = useState(0);
-    const [enteredExpectedReturn, setEnteredExpectedReturn] = useState(0);
-    const [enteredDuration, setEnteredDuration] = useState(0);
+    const [userInput, setUserInput] = useState<UserInput>(initialUserInput);
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-        const currentUserInput = {
-            currentSavings: enteredCurrentSavings,
-            yearlyContribution: enteredYearlyContribution,
-            expectedReturn: enteredExpectedReturn,
-            duration: enteredDuration,
-        };
-
-        onCalculate(currentUserInput);
+        onCalculate(userInput);
     };
 
     // const resetHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     const resetHandler = (): void => {
-        setEnteredCurrentSavings(0);
-        setEnteredYearlyContribution(0);
-        setEnteredExpectedReturn(0);
-        setEnteredDuration(0);
+        setUserInput(initialUserInput);
     };
 
-    const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        switch (event.target.id) {
-            case 'currentSavings':
-                setEnteredCurrentSavings(+event.target.value);
-                break;
-            case 'yearlyContribution':
-                setEnteredYearlyContribution(+event.target.value);
-                break;
-            case 'expectedReturn':
-                setEnteredExpectedReturn(+event.target.value);
-                break;
-            case 'duration':
-                setEnteredDuration(+event.target.value);
-                break;
-            default:
-                break;
-        }
+    const inputChangeHandler = (input: string, value: string) => {
+        setUserInput((prevInput) => {
+            return {
+                ...prevInput,
+                [input]: +value,
+            };
+        });
     };
-
-    // alternative where the logic is defined inside the jsx
-    // const inputChangeHandler = (input, value) => {
-    //     setUserInput((prevInput) => {
-    //         return {
-    //             ...prevInput,
-    //             [input]: value,
-    //         };
-    //     });
-    // };
 
     return (
         <form className={classes.form} onSubmit={submitHandler}>
 
             <div className={classes['input-group']}>
                 <FormInput
-                    value={enteredCurrentSavings}
+                    value={userInput.currentSavings}
                     id='currentSavings'
                     title='Current Savings ($)'
-                    onInputChange={inputChangeHandler}
+                    onChange={(event) => inputChangeHandler('currentSavings', event.target.value)}
                 />
                 <FormInput
-                    value={enteredYearlyContribution}
+                    value={userInput.yearlyContribution}
                     id='yearlyContribution'
                     title='Yearly Savings ($)'
-                    onInputChange={inputChangeHandler}
+                    onChange={(event) => inputChangeHandler('yearlyContribution', event.target.value)}
                 />
             </div>
 
             <div className={classes['input-group']}>
                 <FormInput
-                    value={enteredExpectedReturn}
+                    value={userInput.expectedReturn}
                     id={'expectedReturn'}
                     title='Expected Interest (%, per year)'
-                    onInputChange={inputChangeHandler}
+                    onChange={(event) => inputChangeHandler('expectedReturn', event.target.value)}
                 />
                 <FormInput
-                    value={enteredDuration}
+                    value={userInput.duration}
                     id={'duration'}
                     title='Investment Duration (years)'
-                    onInputChange={inputChangeHandler}
+                    onChange={(event) => inputChangeHandler('duration', event.target.value)}
                 />
             </div>
 

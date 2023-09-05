@@ -1,4 +1,4 @@
-export interface UserData {
+export interface YearlyData {
     year: number;
     yearlyInterest: number;
     savingsEndOfYear: number;

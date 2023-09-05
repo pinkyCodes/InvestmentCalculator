@@ -2,11 +2,11 @@ interface FormInputProps {
     value: number;
     id: string;
     title: string;
-    onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const FormInput = (props: FormInputProps): JSX.Element => {
-    const { value, id, title, onInputChange } = props;
+    const { value, id, title, onChange } = props;
 
     return (
         <p>
@@ -16,7 +16,7 @@ const FormInput = (props: FormInputProps): JSX.Element => {
                 id={id}
                 aria-label={id}
                 value={value || ''}
-                onChange={onInputChange}
+                onChange={onChange}
             />
         </p>
     );
